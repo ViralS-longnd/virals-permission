@@ -14,7 +14,7 @@
     "autoload": {
         "psr-4": {
             "ViralsInfyom\\ViralsPermission\\": "src/",
-            "ViralsInfyom\\ViralsPermission\\Database\\Seeds": "database/seeds/"
+            "ViralsInfyom\\ViralsPermission\\Database\\Seeds\\": "database/seeds/"
         }
     }
 }
