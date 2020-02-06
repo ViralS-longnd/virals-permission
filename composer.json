@@ -1,0 +1,20 @@
+{
+    "name": "virals-infyom/virals-permission",
+    "description": "Infyom Permission",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "duylong",
+            "email": "duylong3110@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ViralsInfyom\\ViralsPermission\\": "src/",
+            "ViralsInfyom\\ViralsPermission\\Database\\Seeds": "database/seeds/"
+        }
+    }
+}
