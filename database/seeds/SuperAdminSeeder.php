@@ -20,7 +20,7 @@ class SuperAdminSeeder extends Seeder
         DB::table('permissions')->truncate();
 
         // import from dump.sql
-        $path = base_path('database/sql/permissions.sql');
+        $path = __DIR__.'/../sql/permissions.sql';
         $sql = file_get_contents($path);
 
         DB::unprepared($sql);
