@@ -31,7 +31,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = $this->roleService->all();
+        $roles = $this->roleService->paginate();
         return view('virals-permission::admin.roles.index', compact('roles'));
     }
 

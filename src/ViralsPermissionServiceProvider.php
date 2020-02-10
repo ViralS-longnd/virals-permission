@@ -36,15 +36,14 @@ class ViralsPermissionServiceProvider extends ServiceProvider
         }
 
         $this->loadViewsFrom(__DIR__.'/../views', 'virals-permission');
-        $this->publishes([
-            __DIR__.'/../views' => base_path('resources/views/vendor/virals-permission'),
-        ]);
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $this->loadRoutesFrom(__DIR__.'/../routes/base.php');
 
         $this->registerMiddlewareGroup($this->app->router);
+
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'virals-permission');
 
     }
 
@@ -65,5 +64,16 @@ class ViralsPermissionServiceProvider extends ServiceProvider
         foreach ($middleware_class as $middleware_class) {
             $router->pushMiddlewareToGroup($middleware_key, $middleware_class);
         }
+    }
+
+    public function publishesFile()
+    {
+        $this->publishes([
+            __DIR__.'/../views' => base_path('resources/views/vendor/virals-permission'),
+        ], 'views');
+
+        $this->publishes([
+            __DIR__.'/../lang' => base_path('resources/lang/vendor/virals-permission'),
+        ], 'lang');
     }
 }

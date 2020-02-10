@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            User
-            <small>Edit User</small>
+            {{ __('virals-permission::permission.user') }}
+            <small>{{ __('virals-permission::permission.user_edit') }}</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
-            <li class="active">Edit User</li>
+            <li><a href="/home"><i class="fa fa-home"></i>{{ __('virals-permission::messages.home') }}</a></li>
+            <li class="active">{{ __('virals-permission::permission.user_edit') }}</li>
         </ol>
     </section>
     <section class="content">
@@ -16,7 +16,7 @@
             <div class="box-body">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Edit User</h3>
+                        <h3 class="box-title">{{ __('virals-permission::permission.user_edit') }}</h3>
                     </div>
                 </div>
                 @if ($errors->any())
@@ -32,15 +32,15 @@
                 @method('PUT')
                 <input type="hidden" name="id" value="{{ $user->id }}">
                 <div class="form-group">
-                    {!! Form::label('name', 'Name') !!}
-                    {!! Form::text('name', old('name') ?? $user->name , ['class' => 'form-control', 'placeholder' => 'User Name']) !!}
+                    {!! Form::label('name', __('virals-permission::permission.user_name')) !!}
+                    {!! Form::text('name', old('name') ?? $user->name , ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
-                    {!! Form::text('email', old('email') ?? $user->email , ['class' => 'form-control', 'placeholder' => 'User Email' , 'readonly']) !!}
+                    {!! Form::label('email', __('virals-permission::permission.user_email')) !!}
+                    {!! Form::text('email', old('email') ?? $user->email , ['class' => 'form-control' , 'readonly']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('name', 'Users Roles') !!}
+                    {!! Form::label('name', __('virals-permission::permission.user_roles')) !!}
                     @foreach($roles as $role)
                         <div class="checkbox">
                             <label>
@@ -50,7 +50,7 @@
                         </div>
                     @endforeach
                 </div>
-                {!! Form::label('name', 'Permissions') !!}
+                {!! Form::label('name', __('virals-permission::permission.user_permissions')) !!}
                 <div class="form-group">
                     @foreach($permissions as $permission)
                     <div class="col-xs-3">
@@ -66,8 +66,8 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                    <a href="{{ route('admin.users.index') }}" class="btn btn-default pull-right">Cancel</a>
+                    <button type="submit" class="btn btn-default">{{ __('virals-permission::messages.submit') }}</button>
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-default pull-right">{{ __('virals-permission::messages.cancel') }}</a>
                 </div>
 
                 {!! Form::close() !!}

@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Users
-            <small>List</small>
+            {{ __('virals-permission::permission.user') }}
+            <small>{{ __('virals-permission::messages.list') }}</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
-            <li class="active">Users list</li>
+            <li><a href="/home"><i class="fa fa-home"></i>{{ __('virals-permission::messages.home') }}</a></li>
+            <li class="active">{{ __('virals-permission::permission.user_list') }}</li>
         </ol>
     </section>
     <section class="content">
@@ -17,12 +17,12 @@
                 <div class="row form-group">
                     <div class="col-sm-12 pull-right">
                         <a href="{{ route('admin.users.create') }}" class="btn btn-success"><i class="fa fa-edit"></i>
-                            Create Users</a>
+                            {{ __('virals-permission::permission.user_create') }}</a>
                     </div>
                 </div>
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">List Users</h3>
+                        <h3 class="box-title">{{ __('virals-permission::permission.user_list') }}</h3>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -30,12 +30,12 @@
                         <thead class="bg-primary">
                         <tr>
                         <tr>
-                            <th>STT</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Extra Permission</th>
-                            <th>Action</th>
+                            <th>{{ __('virals-permission::messages.index') }}</th>
+                            <th>{{ __('virals-permission::permission.user_name') }}</th>
+                            <th>{{ __('virals-permission::permission.user_email') }}</th>
+                            <th>{{ __('virals-permission::permission.role') }}</th>
+                            <th>{{ __('virals-permission::permission.extra_permission') }}</th>
+                            <th>{{ __('virals-permission::messages.action') }}</th>
                         </tr>
                         </tr>
                         </thead>
@@ -56,10 +56,20 @@
                                 </tr>
                             @endforeach
                         @else
-                            <tr><td colspan="5" class="text-center">No result</td></tr>
+                            <tr><td colspan="5" class="text-center">{{ __('virals-permission::messages.no_result') }}</td></tr>
                         @endif
                         </tbody>
                     </table>
+                    <div class="row mbm">
+                        <div class="col-sm-6">
+                            <span class="record-total">{{ __('virals-permission::messages.show') }} {{ $users->count() }} / {{ $users->total() }} {{ __('virals-permission::messages.result') }}</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pagination-panel pull-right">
+                                {{ $users->appends(request()->input())->links() }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +79,7 @@
     <script>
         var request = false;
         $(document).on('click', 'a.delete_role', function (e) {
-            if (!confirm('Are you sure?')) {
+            if (!confirm('{{ __('virals-permission::messages.delete_message') }}')) {
                 e.preventDefault();
             } else {
                 $.ajax({

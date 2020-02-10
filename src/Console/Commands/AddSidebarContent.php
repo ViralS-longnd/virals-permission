@@ -37,14 +37,14 @@ class AddSidebarContent extends Command
      */
     public function handle()
     {
-        $path = base_path().'/resources/views/vendor/virals-permission/admin/sidebar-content.blade.php';
+        $path = __DIR__.'/../../../views/admin/sidebar-content.blade.php';
         $menu_path = base_path().'/resources/views/layouts/menu.blade.php';
         if (file_exists($path)) {
             $contents = file_get_contents($path);
             file_put_contents($menu_path, $contents, FILE_APPEND);
             $this->info('Successfully added code to sidebar_content file.');
         } else {
-            $this->error("The sidebar-content file does not exist. Make sure ViraslPermission is properly installed.");
+            $this->error("The sidebar-content file does not exist. Make sure Virals Permission is properly installed.");
         }
     }
 }

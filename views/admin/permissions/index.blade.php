@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Permission
-            <small>List</small>
+            {{ __('virals-permission::permission.permission') }}
+            <small>{{ __('virals-permission::messages.list') }}</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
-            <li class="active">Permission list</li>
+            <li><a href="/home"><i class="fa fa-home"></i>{{ __('virals-permission::messages.home') }}</a></li>
+            <li class="active">{{ __('virals-permission::permission.permission_list') }}</li>
         </ol>
     </section>
     <section class="content">
@@ -16,7 +16,7 @@
             <div class="box-body">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">List route permissions</h3>
+                        <h3 class="box-title">{{ __('virals-permission::permission.list_route') }}</h3>
                     </div>
                 </div>
                 <form id="form-search-advance" action="{{ route('admin.permission.index') }}" method="get">
@@ -27,7 +27,7 @@
                         <div class="row form-group space-5">
                             <div class="col-sm-4">
                                 <select name="method" class="form-control">
-                                    <option value="" selected>Method</option>
+                                    <option value="" selected>{{ __('virals-permission::permission.method') }}</option>
                                     @foreach($action as $value)
                                         <option value="{{ $value }}" @if(@$method == $value) selected @endif>{{ $value }}</option>
                                     @endforeach
@@ -43,11 +43,11 @@
                     <table class="table table-hover table-striped table-bordered">
                         <thead class="bg-primary">
                         <tr>
-                            <th>Stt</th>
-                            <th>Uri</th>
-                            <th>Method</th>
-                            <th>Permission Name</th>
-                            <th>Action</th>
+                            <th>{{ __('virals-permission::messages.index') }}</th>
+                            <th>{{ __('virals-permission::permission.uri') }}</th>
+                            <th>{{ __('virals-permission::permission.method') }}</th>
+                            <th>{{ __('virals-permission::permission.method') }}</th>
+                            <th>{{ __('virals-permission::messages.action') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -67,13 +67,13 @@
                                 </tr>
                             @endforeach
                         @else
-                            <tr><td colspan="6" class="text-center">No result</td></tr>
+                            <tr><td colspan="6" class="text-center">{{ __('virals-permission::messages.no_result') }}</td></tr>
                         @endif
                         </tbody>
                     </table>
                     <div class="row mbm">
                         <div class="col-sm-6">
-                            <span class="record-total">Show {{ $permissions->count() }} / {{ $permissions->total() }} results</span>
+                            <span class="record-total">{{ __('virals-permission::messages.show') }} {{ $permissions->count() }} / {{ $permissions->total() }} {{ __('virals-permission::messages.result') }}</span>
                         </div>
                         <div class="col-sm-6">
                             <div class="pagination-panel pull-right">
@@ -164,7 +164,7 @@
         });
 
         $(document).on('click', 'button.delete_permission', function (e) {
-            if (!confirm('Are you sure?')) {
+            if (!confirm('{{ __('virals-permission::messages.delete_message') }}')) {
                 e.preventDefault();
             } else {
                 $.ajax({

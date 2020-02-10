@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Roles
-            <small>Edit roles</small>
+            {{ __('virals-permission::permission.role') }}
+            <small>{{ __('virals-permission::permission.role_edit') }}</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
-            <li class="active">Create Roles</li>
+            <li><a href="/home"><i class="fa fa-home"></i>{{ __('virals-permission::messages.home') }}</a></li>
+            <li class="active">{{ __('virals-permission::permission.role_edit') }}</li>
         </ol>
     </section>
     <section class="content">
@@ -16,7 +16,7 @@
             <div class="box-body">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Edit Role</h3>
+                        <h3 class="box-title">{{ __('virals-permission::permission.role_edit') }}</h3>
                     </div>
                 </div>
                 @if ($errors->any())
@@ -32,8 +32,8 @@
                 @method('PUT')
                 <input type="hidden" name="id" value="{{ $role->id }}">
                 <div class="form-group">
-                    {!! Form::label('name', 'Role name') !!}
-                    {!! Form::text('name', old('name') ?? $role->name , ['class' => 'form-control', 'placeholder' => 'Role name']) !!}
+                    {!! Form::label('name', __('virals-permission::permission.role_name')) !!}
+                    {!! Form::text('name', old('name') ?? $role->name , ['class' => 'form-control', 'placeholder' =>  __('virals-permission::permission.role_name')]) !!}
                 </div>
                 {!! Form::label('name', 'Permissions') !!}
                 <div class="form-group">
@@ -50,8 +50,8 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                    <a href="{{ route('admin.roles.index') }}" class="btn btn-default pull-right">Cancel</a>
+                    <button type="submit" class="btn btn-default">{{ __('virals-permission::messages.submit') }}</button>
+                    <a href="{{ route('admin.roles.index') }}" class="btn btn-default pull-right">{{ __('virals-permission::messages.cancel') }}</a>
                 </div>
 
                 {!! Form::close() !!}

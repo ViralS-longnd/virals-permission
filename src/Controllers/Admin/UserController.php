@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->userService->all();
+        $users = $this->userService->paginate();
         return view('virals-permission::admin.users.index', compact('users'));
     }
 

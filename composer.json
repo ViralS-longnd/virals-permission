@@ -15,6 +15,17 @@
         "psr-4": {
             "ViralsInfyom\\ViralsPermission\\": "src/",
             "ViralsInfyom\\ViralsPermission\\Database\\Seeds\\": "database/seeds/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "\\ViralsInfyom\\ViralsPermission\\ViralsPermissionServiceProvider"
+            ]
         }
     }
 }

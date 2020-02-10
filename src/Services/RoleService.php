@@ -19,6 +19,11 @@ class RoleService
         return $this->role->with('permissions')->get();
     }
 
+    public function paginate()
+    {
+        return $this->role->with('permissions')->paginate(10);
+    }
+
     public function create($data)
     {
        $roles = $this->role->create(['name' => $data['name']]);

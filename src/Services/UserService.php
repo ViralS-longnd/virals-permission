@@ -19,6 +19,11 @@ class UserService
         return $this->user->with('permissions', 'roles')->get();
     }
 
+    public function paginate()
+    {
+        return $this->user->with('permissions', 'roles')->paginate(10);
+    }
+
     public function create($data)
     {
         $users = $this->user->create($data);
