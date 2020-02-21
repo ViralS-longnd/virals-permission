@@ -35,10 +35,10 @@ class SuperAdminSeeder extends Seeder
         $this->command->info('Roles table seeded!');
 
         $user = ViralsUser::create([
-            'name' => 'Admin ViralSoft',
-            'email' => 'admin@viralsoft.vn',
+            'name' => 'Admin amai',
+            'email' => 'admin@amai.vn',
             'email_verified_at' => now(),
-            'password' => bcrypt('123456789'), // password
+            'password' => bcrypt('123@123a'), // password
             'remember_token' => Str::random(10),
         ]);
 
