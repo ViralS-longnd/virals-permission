@@ -33,7 +33,7 @@ class PermissionService
         $permissions = [];
         $permissionsId = [];
         foreach ($routeData as $key => $routes) {
-            if ($key != 'HEAD' & $key != 'OPTIONS') {
+            if ($key != 'HEAD' && $key != 'OPTIONS') {
                 foreach ($routes as $uri => $route) {
                     $permission['method'] = $key;
                     $permission['uri'] = $route->uri;
@@ -76,6 +76,7 @@ class PermissionService
     {
         return $this->permission->where('method', $method)->where('uri', $uri)->first();
     }
+
 
     public function delete($id)
     {

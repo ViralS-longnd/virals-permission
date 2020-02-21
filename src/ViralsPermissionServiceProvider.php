@@ -3,13 +3,16 @@
 namespace ViralsInfyom\ViralsPermission;
 
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use ViralsInfyom\ViralsPermission\Console\Commands\AddSidebarContent;
 use ViralsInfyom\ViralsPermission\Console\Commands\PublishPermissionMiddleware;
 use ViralsInfyom\ViralsPermission\Console\Commands\PublishViralsUserModel;
+use ViralsInfyom\ViralsPermission\Models\Traits\CheckPermissionTrait;
 
 class ViralsPermissionServiceProvider extends ServiceProvider
 {
+    use CheckPermissionTrait;
     /**
      * Register services.
      *
@@ -45,6 +48,8 @@ class ViralsPermissionServiceProvider extends ServiceProvider
 
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'virals-permission');
 
+        $this->bladeCustom();
+
     }
 
     public function registerMiddlewareGroup(Router $router)
@@ -75,5 +80,12 @@ class ViralsPermissionServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../lang' => base_path('resources/lang/vendor/virals-permission'),
         ], 'lang');
+    }
+
+    public function bladeCustom()
+    {
+        Blade::if('checkRoute', function ($route) {
+            return $this->checkRoute($route);
+        });
     }
 }
