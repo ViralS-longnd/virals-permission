@@ -45,7 +45,7 @@ class SuperAdminSeeder extends Seeder
         $user->roles()->attach([$role->id]);
 
         $this->command->info('Users table seeded!');
-        $this->command->info('Email : admin@viralsoft.vn');
-        $this->command->info('Password : 123456789');
+        $this->command->info('Email : admin@amai.vn');
+        $this->command->info('Password : 123@123a');
     }
 }
